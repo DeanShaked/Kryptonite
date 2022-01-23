@@ -7,7 +7,7 @@ import logo from "../../../images/logo.png";
 
 import NavbarItem from "./NavbarItem";
 
-const titles = ["Markets","Exchange", "Tutorial", "Wallets"]
+const titles = ["Markets", "Exchange", "Tutorial", "Wallets"];
 
 const Navbar = () => {
   return (
@@ -16,7 +16,9 @@ const Navbar = () => {
         <img src={logo} alt="" className="w-32 cursor-pointer" />
       </div>
       <ul className="text-white md:flex hidden flex-row justify-between items-center flex-initial">
-        {titles.map(title => <NavbarItem title={title} classProps={} />)}
+        {titles.map((title) => (
+          <NavbarItem title={title} />
+        ))}
       </ul>
     </nav>
   );
