@@ -3,7 +3,7 @@ import React from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 
-import logo from "../../../images/logo.png";
+import logo from "../../../assets/images/logo.png";
 
 import NavbarItem from "./NavbarItem";
 
@@ -16,7 +16,7 @@ const Navbar = () => {
         <img src={logo} alt="" className="w-32 cursor-pointer" />
       </div>
       <ul className="text-white md:flex hidden flex-row justify-between items-center flex-initial">
-        {titles.map(title => <NavbarItem title={title} classProps={} />)}
+        {titles.map(title => <NavbarItem title={title} />)}
       </ul>
     </nav>
   );

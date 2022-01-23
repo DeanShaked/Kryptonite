@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { Navbar, Welcome, Footer, Services, Transactions } from "./components";
-import "./App.css";
 
 const App = () => {
   return (
