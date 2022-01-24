@@ -15,7 +15,7 @@ const Navbar = () => {
       </div>
       <ul className="flex justify-center items-center">
         {/* TODO: Pass classProps according to  */}
-        {["Home", "Exchange"].map((title) => (
+        {["Market", "Exchange", "Account"].map((title) => (
           <NavbarItem title={title} />
         ))}
       </ul>
