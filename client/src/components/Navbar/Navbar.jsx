@@ -7,19 +7,21 @@ import logo from "../../../assets/images/logo.png";
 
 import NavbarItem from "./NavbarItem";
 
-const titles = ["Markets", "Exchange", "Tutorial", "Wallets"];
-
 const Navbar = () => {
   return (
-    <nav className="w-full flex md:justify-center justify-between items-center p-4">
-      <div className="md:flex-[0.5] flex-initial justify-center items-center">
+    <nav className="w-full items-center justify-between flex flex-row px-4">
+      <div className="flex">
         <img src={logo} alt="" className="w-32 cursor-pointer" />
       </div>
-      <ul className="text-white md:flex hidden flex-row justify-between items-center flex-initial">
-        {titles.map((title) => (
+      <ul className="flex justify-center items-center">
+        {/* TODO: Pass classProps according to  */}
+        {["Home", "Exchange"].map((title) => (
           <NavbarItem title={title} />
         ))}
       </ul>
+      <div className="flex items-center bg-greyish rounded-xl py-4 h-10">
+        <h3 className="text-green px-4">Connect Wallet</h3>
+      </div>
     </nav>
   );
 };
