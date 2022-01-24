@@ -1,25 +1,24 @@
-import { useEffect } from "react";
-import { Navbar, Welcome, Footer, Services, Transactions } from "./components";
-import { useDispatch } from "react-redux";
-import { sendHttp } from "./redux/actions/accountActions";
+// React Router Dom
+import { Routes, Route } from 'react-router-dom';
+
+// Screens
+import { Navbar, Footer } from "./components";
+import HomeScreen from "./containers/HomeScreen/HomeScreen";
+import MarketScreen from "./containers/MarketScreen/MarketScreen";
+import ExchangeScreen from './containers/ExchangeScreen/ExchangeScreen';
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(sendHttp());
-  }, []);
-
   return (
-    <div className="App">
-      <div className="min-h-screen gradient-bg-welcome">
+    <div>
         <Navbar />
-        <Welcome />
-
-        <Services />
-        <Transactions />
-        <Footer />
-      </div>
+      <main>
+        <Routes>
+          <Route exact path={'/'} element={<HomeScreen />} />
+          <Route path={'/market'} element={<MarketScreen />} />
+          <Route path={'/exchange'} element={<ExchangeScreen />} />
+        </Routes>
+      </main>
+      <Footer />
     </div>
   );
 };
