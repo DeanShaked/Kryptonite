@@ -1,5 +1,6 @@
 // App
 import React from "react";
+import LearnMoreButton from "../../components/Reusable UI/LearnMoreButton";
 
 const MarketInfo = () => {
   return (
@@ -17,11 +18,7 @@ const MarketInfo = () => {
           <h1>Explore more collections</h1>
         </div>
       </div>
-      <div className="flex flex-row justify-end w-full px-16">
-        <button className="bg-green h-10 w-40 rounded-xl font-bold">
-          Learn More
-        </button>
-      </div>
+      <LearnMoreButton textColor={"grey"} backgroundColor={"green"} />
     </section>
   );
 };

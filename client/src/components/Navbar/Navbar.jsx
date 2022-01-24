@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className="w-full items-center justify-between flex flex-row px-4">
       <div className="flex">
-        <NavLink exact to={"/"}>
+        <NavLink exact="true" to={"/"}>
           <img src={logo} className="w-32 cursor-pointer" />
         </NavLink>
       </div>

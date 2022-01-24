@@ -1,3 +1,4 @@
+import LearnMoreButton from "../../components/Reusable UI/LearnMoreButton";
 import BNBLogo from "../../../assets/images/bnb-logo.svg";
 import ETHLogo from "../../../assets/images/eth-logo.svg";
 
@@ -13,11 +14,7 @@ const ExchangeInfo = () => {
             <img src={ETHLogo} />
           </div>
         </div>
-        <div className="flex flex-row justify-end w-full px-16">
-          <button className="bg-grey text-green h-10 w-40 rounded-xl font-bold">
-            Learn More
-          </button>
-        </div>
+        <LearnMoreButton textColor={"green"} backgroundColor={"grey"} />
       </div>
     </section>
   );
