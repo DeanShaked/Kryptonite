@@ -1,21 +1,21 @@
 // React Router Dom
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 
 // Screens
 import { Navbar, Footer } from "./components";
 import HomeScreen from "./containers/HomeScreen/HomeScreen";
 import MarketScreen from "./containers/MarketScreen/MarketScreen";
-import ExchangeScreen from './containers/ExchangeScreen/ExchangeScreen';
+import ExchangeScreen from "./containers/ExchangeScreen/ExchangeScreen";
 
 const App = () => {
   return (
-    <div>
-        <Navbar />
+    <div className="min-h-screen gradient-bg-welcome">
+      <Navbar />
       <main>
         <Routes>
-          <Route exact path={'/'} element={<HomeScreen />} />
-          <Route path={'/market'} element={<MarketScreen />} />
-          <Route path={'/exchange'} element={<ExchangeScreen />} />
+          <Route exact path={"/"} element={<HomeScreen />} />
+          <Route path={"/market"} element={<MarketScreen />} />
+          <Route path={"/exchange"} element={<ExchangeScreen />} />
         </Routes>
       </main>
       <Footer />

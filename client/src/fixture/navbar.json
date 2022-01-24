@@ -9,6 +9,11 @@
       "id": 2,
       "title": "Market",
       "route": "/market"
+    },
+    {
+      "id": 3,
+      "title": "Exchange",
+      "route": "/exchange"
     }
   ]
 }

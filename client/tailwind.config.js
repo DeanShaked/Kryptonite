@@ -13,6 +13,7 @@ module.exports = {
       regular: "#676D85",
       black: "#000000",
       cyan: "#34D9C5",
+      grey: "#323232",
       secondary: "unknown",
       warning: "#f03800",
       greyish: "#dbdbdb",
@@ -37,6 +38,7 @@ module.exports = {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
     },
+
     extend: {},
   },
   plugins: [],
