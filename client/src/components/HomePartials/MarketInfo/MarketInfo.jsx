@@ -1,5 +1,5 @@
 // Components
-import LearnMoreButton from "../../UI/Loader/LearnMoreButton";
+import ButtonElement from "../../Reusable/ButtonElement";
 
 const MarketInfo = () => {
   return (
@@ -17,7 +17,7 @@ const MarketInfo = () => {
           <h1>Explore more collections</h1>
         </div>
       </div>
-      <LearnMoreButton textColor={"grey"} backgroundColor={"green"} />
+      <ButtonElement title={'Learn More'} backgroundColor={"green"} textColor={"grey"} onClick={() => {}} />
     </section>
   );
 };

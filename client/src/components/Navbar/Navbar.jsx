@@ -15,7 +15,7 @@ const Navbar = () => {
   ));
 
   return (
-    <nav className="w-full items-center justify-around flex flex-row h-32">
+    <nav className="w-full items-center justify-around flex h-32 bg-gradient-to-r from-green via-primary to-black">
       <div className="flex">
         <NavLink exact="true" to={"/"}>
           <LogoSvg className="w-20 cursor-pointer" />
