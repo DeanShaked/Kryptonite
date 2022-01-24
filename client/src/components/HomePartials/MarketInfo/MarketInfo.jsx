@@ -1,10 +1,9 @@
-// App
-import React from "react";
-import LearnMoreButton from "../../components/Reusable UI/LearnMoreButton";
+// Components
+import LearnMoreButton from "../../UI/Loader/LearnMoreButton";
 
 const MarketInfo = () => {
   return (
-    <section>
+    <section className="h-screen flex justify-center flex-col">
       <div className="flex min-h-max justify-center items-center space-x-4 flex-row">
         <div className="bg-green w-64 h-96 flex items-center justify-center rounded-xl font-bold">
           <h1>Create an NFT</h1>

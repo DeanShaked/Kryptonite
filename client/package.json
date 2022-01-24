@@ -7,6 +7,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@honkhonk/vite-plugin-svgr": "^1.1.0",
     "@reduxjs/toolkit": "^1.7.1",
     "axios": "^0.25.0",
     "ethers": "^5.5.3",

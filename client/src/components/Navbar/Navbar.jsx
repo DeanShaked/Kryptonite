@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 // Components & Assets
 import NavbarItem from "./NavbarItem";
-import logo from "../../../assets/images/logo.png";
+import LogoSvg from "../../../assets/images/logo.svg?component";
 
 // Fixture
 import { menu } from "../../fixture/navbar.json";
@@ -15,14 +15,14 @@ const Navbar = () => {
   ));
 
   return (
-    <nav className="w-full items-center justify-between flex flex-row px-4">
+    <nav className="w-full items-center justify-around flex flex-row h-32">
       <div className="flex">
         <NavLink exact="true" to={"/"}>
-          <img src={logo} className="w-32 cursor-pointer" />
+          <LogoSvg className="w-20 cursor-pointer" />
         </NavLink>
       </div>
-      <ul className="flex justify-center items-center">{createNav}</ul>
-      <div className="flex items-center rounded-xl py-4 h-10 bg-green shadow-md shadow-black hover:transition-opacity hover:duration-500 hover:opacity-70 ">
+      <ul className="flex justify-center items-center p">{createNav}</ul>
+      <div className="flex items-center rounded-xl py-4 h-10 bg-green shadow-md shadow-black hover:transition-opacity hover:duration-300 hover:opacity-70 ">
         <button className="text-grey font-bold px-4 ">Connect Wallet</button>
       </div>
     </nav>

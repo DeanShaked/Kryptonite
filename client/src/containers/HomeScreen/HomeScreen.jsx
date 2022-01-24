@@ -1,6 +1,6 @@
 // Components
-import ExchangeInfo from "../../components/HomePartials/ExchangeInfo";
-import MarketInfo from "../../components/HomePartials/MarketInfo";
+import ExchangeInfo from "../../components/HomePartials/ExchangeInfo/ExchangeInfo";
+import MarketInfo from "../../components/HomePartials/MarketInfo/MarketInfo";
 
 const HomeScreen = () => {
   return (
