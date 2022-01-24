@@ -1,12 +1,10 @@
 // App
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 // Components & Assets
 import NavbarItem from "./NavbarItem";
-import { NavLink } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
-import { HiMenuAlt4 } from "react-icons/hi";
-import { AiOutlineClose } from "react-icons/ai";
 
 // Fixture
 import { menu } from "../../fixture/navbar.json";
