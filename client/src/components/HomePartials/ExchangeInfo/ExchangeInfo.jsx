@@ -4,13 +4,28 @@ import ExchangeInfoTable from "./ExchangeInfoTable";
 
 const ExchangeInfo = () => {
   return (
-    <section>
-      <div className="bg-green w-full my-5 flex space-y-4 justify-center items-center flex-col py-4">
-        <ExchangeInfoTable />
-        <ButtonElement title={'Learn More'} textColor={"green"} backgroundColor={"grey"} onClick={() => {}} />
+    <div className="container mx-auto bg-green h-[700px] flex flex-col  xl:flex-row my-2">
+      <div className="flex flex-row  bg-white w-full h-full">
+        <h1>hey</h1>
+        <h1>hey</h1>
+        <h1>hey</h1>
       </div>
-    </section>
+      <div className="flex flex-rowbg-black w-full h-full">
+        <h1>hey</h1>
+        <h1>hey</h1>
+        <h1>hey</h1>
+      </div>
+    </div>
   );
 };
 
 export default ExchangeInfo;
+
+{
+  /* <ButtonElement
+    title={"Learn More"}
+    textColor={"green"}
+    backgroundColor={"grey"}
+    onClick={() => {}}
+  /> */
+}

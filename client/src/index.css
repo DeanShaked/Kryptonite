@@ -14,10 +14,40 @@ ul {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* hide scrollbar properties */
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
 }
 
-.gradient-bg-welcome {
-  background-color: #323232;
+/* hide scrollbar properties */
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+/* Fading hr */
+hr {
+  border: 0;
+  margin: 0 auto !important;
+  width: 60% !important;
+  height: 1px !important;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.75),
+    rgba(255, 255, 255, 0)
+  );
+}
+/* General background color */
+.gradient-bg-home {
+  background-color: #18182c;
+  background-image: linear-gradient(
+    to top right,
+    #0d0d14 60%,
+    #1e126ba8,
+    #18182c
+  );
 }
 
 @tailwind base;

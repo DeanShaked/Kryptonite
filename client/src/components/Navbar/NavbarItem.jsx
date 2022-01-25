@@ -8,8 +8,8 @@ const NavbarItem = ({ title, route }) => {
       to={route}
       className={({ isActive }) =>
         isActive
-          ? "font-bold text-green"
-          : "font-bold text-white hover:text-green opacity-50 hover:opacity-100 "
+          ? "font-bold text-purple"
+          : "font-bold text-white hover:text-purple opacity-80 hover:opacity-100 "
       }
     >
       <li className="mx-4 cursor-pointer font-medium text-xl">{title}</li>

@@ -5,8 +5,8 @@ import MarketInfo from "../../components/HomePartials/MarketInfo/MarketInfo";
 const HomeScreen = () => {
   return (
     <div>
-      <MarketInfo />
       <ExchangeInfo />
+      {/* <MarketInfo /> */}
     </div>
   );
 };

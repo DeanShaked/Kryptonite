@@ -9,7 +9,7 @@ import ExchangeScreen from "./containers/ExchangeScreen/ExchangeScreen";
 
 const App = () => {
   return (
-    <div className="min-h-screen gradient-bg-welcome">
+    <div className="gradient-bg-home">
       <Navbar />
       <main>
         <Routes>

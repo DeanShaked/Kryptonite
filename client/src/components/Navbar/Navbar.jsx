@@ -15,18 +15,20 @@ const Navbar = () => {
   ));
 
   return (
-    <nav className="w-full items-center justify-around flex flex-row h-32 bg-gradient-to-r from-green via-primary to-black">
-      <div className="flex">
-        <NavLink exact="true" to={"/"}>
-          <LogoSvg className="w-20 cursor-pointer" />
-        </NavLink>
-      </div>
-      <ul className="flex justify-center items-center p">{createNav}</ul>
-      <div className="flex items-center rounded-xl py-4 h-10 bg-green shadow-md shadow-black hover:transition-opacity hover:duration-300 hover:opacity-70 ">
-        <button className="text-grey font-bold px-4 ">Connect Wallet</button>
-        <button className="h-20 w-20 ">hey</button>
-      </div>
-    </nav>
+    <>
+      <nav className="w-full items-center justify-evenly flex flex-row h-32">
+        <div className="flex">
+          <NavLink exact="true" to={"/"}>
+            <LogoSvg className="w-[108px] cursor-pointer" />
+          </NavLink>
+        </div>
+        <ul className="flex justify-center items-center p">{createNav}</ul>
+        <div className="flex items-center rounded-xl py-4 h-14 bg-purple shadow-md hover:transition-opacity hover:duration-300 hover:opacity-70 ">
+          <button className="text-white font-bold px-4">Connect Wallet</button>
+        </div>
+      </nav>
+      <hr />
+    </>
   );
 };
 
