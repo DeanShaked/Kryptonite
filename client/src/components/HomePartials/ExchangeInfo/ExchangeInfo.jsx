@@ -27,7 +27,7 @@ const ExchangeInfo = () => {
             <RiVisaLine className="h-[80px] w-24 mb-3 ml-2 text-white" />
           </div>
         </div>
-        <div className="--silver-border --gradient-blue-silver rounded-2xl h-96 w-[516px] mx-auto"></div>
+        <div className="--silver-border border- --gradient-blue-silver rounded-2xl h-96 w-[516px] mx-auto"></div>
       </div>
     </div>
   );
