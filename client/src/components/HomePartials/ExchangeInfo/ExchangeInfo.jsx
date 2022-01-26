@@ -1,5 +1,8 @@
 import { RiWifiLine, RiVisaLine } from "react-icons/ri";
 
+// Components
+import FormTransaction from "../../form/FormTransaction";
+
 const ExchangeInfo = () => {
   return (
     <div className="container mx-auto bg-transparent h-[700px] flex flex-col  xl:flex-row my-2">
@@ -27,7 +30,9 @@ const ExchangeInfo = () => {
             <RiVisaLine className="h-[80px] w-24 mb-3 ml-2 text-white" />
           </div>
         </div>
-        <div className="--silver-border border- --gradient-blue-silver rounded-2xl h-96 w-[516px] mx-auto"></div>
+        <div className="--silver-border --gradient-blue-silver rounded-2xl h-96 w-[516px] mx-auto">
+          <FormTransaction />
+        </div>
       </div>
     </div>
   );
