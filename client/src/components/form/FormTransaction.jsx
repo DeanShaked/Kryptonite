@@ -1,53 +1,63 @@
 import React, { useState } from "react";
 
-// Components
 import InputElement from "../Reusable/InputElement";
 import ButtonElement from "../Reusable/ButtonElement";
 
+const initState = {
+  addressTo: "",
+  amount: "",
+  keyword: "",
+  message: "",
+};
+
 const FormTransaction = () => {
-  const initState = {
-    addressTo: "",
-    amount: "",
-    keyword: "",
-    message: ""
-  },
-  const [transactionFormState, setTransactionFormState] = useState({});
+  const [stateTransaction, setStateTransaction] = useState(initState);
 
-  const { addressTo, amount, keyword, message } = transactionFormState;
+  const updateState = (name, event) => {
+    setStateTransaction((prevState) => ({
+      ...prevState,
+      [name]: event.target.value,
+    }));
+  };
 
-  const updateState = () => {};
+  const onSend = () => {
+    console.log(stateTransaction);
+    setStateTransaction(initState);
+  };
+
+  const { addressTo, amount, keyword, message } = stateTransaction;
 
   return (
     <div>
       <InputElement
         value={addressTo}
         placeholder={"Address To"}
-        onChange={updateState}
+        onChange={updateState.bind(this, "addressTo")}
         name={"addressTo"}
       />
       <InputElement
         value={amount}
         placeholder={"Amount"}
-        onChange={updateState}
+        onChange={updateState.bind(this, "amount")}
         name={"amount"}
       />
       <InputElement
         value={keyword}
         placeholder={"Keyword"}
-        onChange={updateState}
+        onChange={updateState.bind(this, "keyword")}
         name={"keyword"}
       />
       <InputElement
         value={message}
         placeholder={"Message"}
-        onChange={updateState}
+        onChange={updateState.bind(this, "message")}
         name={"message"}
       />
       <ButtonElement
         title={"Send Now"}
         backgroundColor={"green"}
         textColor={"white"}
-        onClick={() => {}}
+        onClick={onSend}
       />
     </div>
   );
