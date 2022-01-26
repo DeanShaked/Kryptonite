@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300&family=Raleway:wght@300&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 ul {
@@ -48,6 +47,35 @@ hr {
     #1e126ba8,
     #18182c
   );
+}
+
+.--gradient-silver {
+  background: #474747;
+  background: linear-gradient(90deg, #474747 0%, #1f1f1f 100%);
+  border-width: 1px !important;
+}
+
+.--gradient-blue-silver {
+  background: rgb(39, 40, 45);
+  background: linear-gradient(
+    90deg,
+    rgba(39, 40, 45, 1) 0%,
+    rgba(40, 44, 62, 1) 100%
+  );
+}
+
+.--gradient-light-silver {
+  background: rgb(136, 136, 136);
+  background: linear-gradient(
+    90deg,
+    rgba(136, 136, 136, 1) 0%,
+    rgba(200, 198, 198, 1) 100%
+  );
+}
+
+.--silver-border {
+  border-width: 2px;
+  @apply border-silver border-solid;
 }
 
 @tailwind base;

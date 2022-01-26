@@ -33,10 +33,7 @@ module.exports = {
       normalGreen: "#23ce67",
       darkGreen: "#008621",
       darkerGreen: "#08442F",
-    },
-    fontFamily: {
-      sans: ["Graphik", "sans-serif"],
-      serif: ["Merriweather", "serif"],
+      silver: "#c0c0c0",
     },
 
     extend: {},
