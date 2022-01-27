@@ -10,7 +10,7 @@ const WelcomeIntro = () => {
         Get Started with the easiest and most secure platform to buy, sell,
         trade, and earn cryptocurrencies
       </p>
-      <button className="--gradient-silver --silver-border w-56 h-14 rounded-md text-white font-semibold  mt-10">
+      <button className="--gradient-silver --silver-border w-56 h-14 rounded-md text-white font-semibold mt-10 hover:opacity-70">
         Get Started
       </button>
     </div>

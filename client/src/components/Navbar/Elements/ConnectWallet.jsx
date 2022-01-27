@@ -15,7 +15,7 @@ const ConnectWallet = () => {
         href="https://metamask.io/download/"
         target="_blank"
         rel="noreferrer"
-        className="text-purple cursor-pointer font-bold text-lg"
+        className="text-purple cursor-pointer font-bold text-lg hover:scale-110 hover:transition-transform"
       >
         Please Install MetaMask
       </a>
