@@ -1,9 +1,9 @@
 // App
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 // Components & Assets
-import NavbarItem from "./NavbarItem";
+import ConnectWallet from "./Elements/ConnectWallet";
+import NavbarItem from "./Elements/NavbarItem";
 import LogoSvg from "../../../assets/images/logo.svg?component";
 
 // Fixture
@@ -23,9 +23,7 @@ const Navbar = () => {
           </NavLink>
         </div>
         <ul className="flex justify-center items-center p">{createNav}</ul>
-        <div className="flex items-center rounded-xl py-4 h-14 bg-purple shadow-md hover:transition-opacity hover:duration-300 hover:opacity-70 ">
-          <button className="text-white font-bold px-4">Connect Wallet</button>
-        </div>
+        <ConnectWallet />
       </nav>
       <hr />
     </>
