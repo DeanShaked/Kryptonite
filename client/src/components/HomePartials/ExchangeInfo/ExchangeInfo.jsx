@@ -13,8 +13,11 @@ const ExchangeInfo = () => {
         <WelcomeIntro />
       </Fade>
       <div className='flex flex-col w-full h-full'>
+        <Fade  delay={500} >
+
         <CreditCard />
-        <Fade delay={500} duration={3000}>
+        </Fade>
+        <Fade delay={1000} duration={1000}>
           <FormTransaction />
         </Fade>
       </div>
