@@ -86,8 +86,8 @@ hr {
     radial-gradient(at 27% 71%, hsla(336, 91%, 65%, 1) 0, transparent 49%),
     radial-gradient(at 74% 89%, hsla(30, 98%, 65%, 1) 0, transparent 51%),
     radial-gradient(at 53% 75%, hsla(174, 94%, 68%, 1) 0, transparent 45%);
-  animation: floatAnim 5s ease-in-out infinite;
-  z-index: 1000;
+  animation: floatAnim 5s ease-in-out infinite; 
+  z-index: 1;
 }
 .react-reveal{
   animation-fill-mode: backwards !important;

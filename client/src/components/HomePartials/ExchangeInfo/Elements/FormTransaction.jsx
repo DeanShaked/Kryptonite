@@ -1,5 +1,10 @@
+// App
 import React, { useState } from "react";
 
+// React Reveal
+import Fade from 'react-reveal/Fade';
+
+// Components
 import InputElement from "../../../Reusable/InputElement";
 import ButtonElement from "../../../Reusable/ButtonElement";
 
@@ -30,6 +35,7 @@ const FormTransaction = () => {
   const { addressTo, amount, keyword, message } = stateTransaction;
 
   return (
+    <Fade delay={500} duration={1000}>
     <div className=" --silver-border --gradient-blue-silver shadow-lg rounded-2xl h-[420px] w-[516px] mx-auto">
       <div className="flex flex-col h-[80%] justify-around items-center translate-y-20 w-full">
         <InputElement
@@ -70,6 +76,7 @@ const FormTransaction = () => {
         </div>
       </div>
     </div>
+    </Fade>
   );
 };
 
