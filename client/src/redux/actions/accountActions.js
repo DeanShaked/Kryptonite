@@ -7,9 +7,15 @@ const { ethereum } = window;
 export const checkIfWalletIsConnected = () => async (dispatch) => {
   if (!ethereum) return alert("Please Install MetaMask");
 
-  const accountAdress = await ethereum.request({ method: "eth_accounts" });
-  console.log("accounts", accountAdress);
-  dispatch(setAccountAddress(accountAdress));
+  const accountAddress = await ethereum.request({ method: "eth_accounts" });
+
+  if (accountAddress.length) {
+    dispatch(setAccountAddress(accountAddress));
+  } else {
+    console.log("No account found");
+  }
+
+  console.log("accountAddress :>> ", accountAddress);
 };
 
 // This function collect the wallet account.... will expand later
@@ -23,6 +29,5 @@ export const connectWallet = () => async (dispatch) => {
     dispatch(setCurrentAccount(currentAccount[0]));
   } catch (error) {
     console.error(error);
-    throw new Error("No ethereum object.");
   }
 };

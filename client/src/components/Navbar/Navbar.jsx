@@ -1,6 +1,9 @@
 // App
 import { NavLink } from "react-router-dom";
 
+// Redux
+import { useSelector } from "react-redux";
+
 // Components & Assets
 import ConnectWallet from "./Elements/ConnectWallet";
 import NavbarItem from "./Elements/NavbarItem";
@@ -13,6 +16,7 @@ const Navbar = () => {
   const createNav = menu.map(({ id, title, route }) => (
     <NavbarItem key={id} title={title} route={route} />
   ));
+  const { accountAddress } = useSelector((state) => state.accountSlice);
 
   return (
     <>
@@ -23,7 +27,11 @@ const Navbar = () => {
           </NavLink>
         </div>
         <ul className="flex justify-center items-center p">{createNav}</ul>
-        <ConnectWallet />
+        {!accountAddress ? (
+          <ConnectWallet />
+        ) : (
+          <div className="flex w-[143px]"></div>
+        )}
       </nav>
       <hr />
     </>

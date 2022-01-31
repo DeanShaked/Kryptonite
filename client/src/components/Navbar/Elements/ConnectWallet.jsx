@@ -36,7 +36,7 @@ const ConnectWallet = () => {
     );
   }
 
-  return <div>{displayConnection}</div>;
+  return <div className="flex w-auto">{displayConnection}</div>;
 };
 
 export default ConnectWallet;
