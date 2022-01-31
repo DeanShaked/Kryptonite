@@ -1,5 +1,9 @@
 // App
 import React, { useState } from "react";
+import { ethers } from "ethers";
+
+// Redux
+import { useSelector } from "react-redux";
 
 // React Reveal
 import Fade from "react-reveal/Fade";
@@ -9,20 +13,24 @@ import InputElement from "../../../Reusable/InputElement";
 import ButtonElement from "../../../Reusable/ButtonElement";
 import { getEthereumContract } from "../../../../utils/getEthereumContract";
 
-const {ethereum} = window;
+const { ethereum } = window;
 
 const initState = {
-  addressTo: "",
-  amount: "",
-  keyword: "",
-  message: "",
+  addressTo: "0xDb5F5F1EA2C4e051357048347a066313E265a9DD",
+  amount: 0.001,
+  keyword: "test",
+  message: "test",
 };
 
 const FormTransaction = () => {
   const [stateTransaction, setStateTransaction] = useState(initState);
+  const { accountAddress } = useSelector((state) => state.accountSlice);
 
-  const {accountAddress} = useSelector((state) => state.accountSlice);
-  const 
+  const [transactionCount, setTransactionCount] = useState(
+    localStorage.getItem("transactionCount") || 0
+  );
+  const [isLoading, setIsLoading] = useState(false);
+
   const updateState = (name, event) => {
     setStateTransaction((prevState) => ({
       ...prevState,
@@ -30,21 +38,46 @@ const FormTransaction = () => {
     }));
   };
 
-  const onSend = () => {
+  const onSend = async () => {
     console.log(stateTransaction);
     if (!addressTo || !amount || !keyword || !message) {
       return;
-    } else {
-      // Getting the smart contract instance.
-      const transactionContract = getEthereumContract();
-
-      await ethereum.request( {
-        method: "eth_sendTransaction",
-        // params:[{from:accountAddress,to:addressTo,gas:}]
-      })
-
-      setStateTransaction(transactionContract);
     }
+
+    // Getting the smart contract instance.
+    const transactionContract = getEthereumContract();
+    const parsedAmount = ethers.utils.parseEther(amount);
+
+    await ethereum.request({
+      method: "eth_sendTransaction",
+      params: [
+        {
+          from: accountAddress,
+          to: addressTo,
+          gas: "0x5208", // 21000 GWEI
+          value: parsedAmount._hex, // 0.0001 ETH
+        },
+      ],
+    });
+
+    const transactionHash = await transactionContract.addToBlockchain(
+      addressTo,
+      parsedAmount,
+      keyword,
+      message
+    );
+
+    setIsLoading(true);
+    console.log(`Loading - ${transactionHash}`);
+    await transactionHash.wait();
+    setIsLoading(false);
+    console.log(`Success - ${transactionHash}`);
+
+    const transactionCount = transactionContract.getTransactionCount();
+
+    setTransactionCount(transactionCount);
+
+    setStateTransaction(transactionContract.toNumber());
   };
 
   const [isError, setIsError] = useState(false);
