@@ -1,24 +1,29 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  rates: null,
+  accountAddress: null,
+  currentAccount: null,
   isLoading: false,
   message: null,
 };
 
 export const accountSlice = createSlice({
-  name: 'account',
+  name: "account",
   initialState,
   reducers: {
-    setRates: (state, action) => {
-      state.rates = action.payload;
+    setAccountAddress: (state, action) => {
+      state.accountAddress = action.payload;
     },
-    setLoader: state => {
+    setCurrentAccount: (state, action) => {
+      state.currentAccount = action.payload;
+    },
+    setLoader: (state) => {
       state.isLoading = true;
     },
   },
 });
 
-export const { setLoader, setRates } = accountSlice.actions;
+export const { setLoader, setAccountAddress, setCurrentAccount } =
+  accountSlice.actions;
 
 export default accountSlice.reducer;

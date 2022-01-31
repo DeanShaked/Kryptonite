@@ -1,5 +1,12 @@
+// App
+import { useEffect } from "react";
+
 // React Router Dom
 import { Routes, Route } from "react-router-dom";
+
+// Redux
+import { useDispatch } from "react-redux";
+import { checkIfWalletIsConnected } from "./redux/actions/accountActions";
 
 // Screens
 import { Navbar, Footer } from "./components";
@@ -8,6 +15,12 @@ import MarketScreen from "./containers/MarketScreen/MarketScreen";
 import ExchangeScreen from "./containers/ExchangeScreen/ExchangeScreen";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkIfWalletIsConnected());
+  }, []);
+
   return (
     <div className="gradient-bg-home">
       <Navbar />
