@@ -31,3 +31,15 @@ export const connectWallet = () => async (dispatch) => {
     console.error(error);
   }
 };
+
+export const sendTransaction = () => async (dispatch) => {
+  try {
+    if (!ethereum) return alert("Please install meta mask");
+
+    // get the data from the form
+
+    dispatch(setCurrentAccount(currentAccount[0]));
+  } catch (error) {
+    console.error(error);
+  }
+};
