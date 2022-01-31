@@ -1,5 +1,5 @@
-import { ethers } from "ethers";
-import { contractABI, contractAddress } from "./constants";
+import { ethers } from 'ethers';
+import { contractABI, contractAddress } from './constants';
 
 const { ethereum } = window;
 
