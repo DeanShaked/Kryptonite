@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { checkIfWalletIsConnected } from "./redux/actions/accountActions";
 
 // Screens
@@ -17,9 +17,15 @@ import ExchangeScreen from "./containers/ExchangeScreen/ExchangeScreen";
 const App = () => {
   const dispatch = useDispatch();
 
+  const { accountAddress } = useSelector((state) => state.accountSlice);
+
   useEffect(() => {
     dispatch(checkIfWalletIsConnected());
   }, []);
+
+  useEffect(() => {
+    // TODO: Reload the page if the account address changes
+  }, [accountAddress]);
 
   return (
     <div className="gradient-bg-home">

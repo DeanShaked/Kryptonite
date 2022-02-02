@@ -1,12 +1,11 @@
 // Components
-import Services from '../../components/Services/Services';
-import ExchangeInfo from '../../components/HomePartials/ExchangeInfo/ExchangeInfo';
-import MarketInfo from '../../components/HomePartials/MarketInfo/MarketInfo';
+import Welcome from "../../components/HomePartials/Welcome/Welcome";
+import Services from "../../components/HomePartials/Services/Services";
 
 const HomeScreen = () => {
   return (
     <div>
-      <ExchangeInfo />
+      <Welcome />
       <Services />
       {/* <MarketInfo /> */}
     </div>

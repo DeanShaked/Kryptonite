@@ -20,7 +20,7 @@ const CreditCard = () => {
         </div>
         <div className="h-16 ml-5 ">
           <div>
-            {addressToDisplay ? (
+            {addressToDisplay !== undefined ? (
               <p className="text-white font-light text-sm">
                 {addressToDisplay}
               </p>
