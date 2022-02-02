@@ -1,5 +1,5 @@
 // Reducers Methods
-import { setAccountAddress, setCurrentAccount } from "../reducers/accountSlice";
+import { setCurrentAccount } from "../reducers/accountSlice";
 
 const { ethereum } = window;
 
@@ -7,15 +7,15 @@ const { ethereum } = window;
 export const checkIfWalletIsConnected = () => async (dispatch) => {
   if (!ethereum) return alert("Please Install MetaMask");
 
-  const accountAddress = await ethereum.request({ method: "eth_accounts" });
+  const currentAccount = await ethereum.request({ method: "eth_accounts" });
 
-  if (accountAddress.length) {
-    dispatch(setAccountAddress(accountAddress));
+  if (currentAccount.length) {
+    dispatch(setCurrentAccount(currentAccount[0]));
   } else {
     console.log("No account found");
   }
 
-  console.log("accountAddress :>> ", accountAddress);
+  console.log("currentAccount[0] :>> ", currentAccount[0]);
 };
 
 // This function collect the wallet account.... will expand later
@@ -25,19 +25,6 @@ export const connectWallet = () => async (dispatch) => {
     const currentAccount = await ethereum.request({
       method: "eth_requestAccounts",
     });
-    console.log("currentAccount", currentAccount);
-    dispatch(setCurrentAccount(currentAccount[0]));
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-export const sendTransaction = () => async (dispatch) => {
-  try {
-    if (!ethereum) return alert("Please install meta mask");
-
-    // get the data from the form
-
     dispatch(setCurrentAccount(currentAccount[0]));
   } catch (error) {
     console.error(error);

@@ -16,7 +16,7 @@ const Navbar = () => {
   const createNav = menu.map(({ id, title, route }) => (
     <NavbarItem key={id} title={title} route={route} />
   ));
-  const { accountAddress } = useSelector((state) => state.accountSlice);
+  const { currentAccount } = useSelector((state) => state.accountSlice);
 
   return (
     <>
@@ -27,7 +27,7 @@ const Navbar = () => {
           </NavLink>
         </div>
         <ul className="flex justify-center items-center p">{createNav}</ul>
-        {!accountAddress ? (
+        {!currentAccount ? (
           <ConnectWallet />
         ) : (
           <div className="flex w-[143px]"></div>

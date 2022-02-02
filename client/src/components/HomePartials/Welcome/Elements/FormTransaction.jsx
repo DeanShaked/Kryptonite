@@ -24,7 +24,7 @@ const initState = {
 
 const FormTransaction = () => {
   const [stateTransaction, setStateTransaction] = useState(initState);
-  const { accountAddress } = useSelector((state) => state.accountSlice);
+  const { currentAccount } = useSelector((state) => state.accountSlice);
   const { addressTo, amount, keyword, message } = stateTransaction;
 
   const [transactionCount, setTransactionCount] = useState(
@@ -50,7 +50,7 @@ const FormTransaction = () => {
           method: "eth_sendTransaction",
           params: [
             {
-              from: accountAddress[0],
+              from: currentAccount[0],
               to: addressTo,
               gas: "0x5208", // 21000 GWEI
               value: parsedAmount._hex, // 0.0001 ETH

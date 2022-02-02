@@ -1,13 +1,16 @@
+// Utils
+import { shortenAddress } from "../../../../utils/ShortenAddress";
+
 // React Reveal
 import Fade from "react-reveal/Fade";
 import { useSelector } from "react-redux";
+
 // Icons
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 
 const CreditCard = () => {
-  const { accountAddress } = useSelector((state) => state.accountSlice);
-  const addressToDisplay = accountAddress?.toString().slice(0, 28) + "...";
+  const { currentAccount } = useSelector((state) => state.accountSlice);
   return (
     <div className="eth-card z-50 h-[200px] w-96 mx-auto translate-y-16 rounded-lg flex flex-col justify-between">
       <Fade delay={1000}>
@@ -20,9 +23,9 @@ const CreditCard = () => {
         </div>
         <div className="h-16 ml-5 ">
           <div>
-            {addressToDisplay !== undefined ? (
+            {currentAccount ? (
               <p className="text-white font-light text-sm">
-                {addressToDisplay}
+                {shortenAddress(currentAccount)}
               </p>
             ) : (
               <p className="text-white font-light text-sm">Address</p>

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  accountAddress: null,
+  currentAccount: null,
   currentAccount: null,
   isLoading: false,
   message: null,
@@ -11,8 +11,8 @@ export const accountSlice = createSlice({
   name: "account",
   initialState,
   reducers: {
-    setAccountAddress: (state, action) => {
-      state.accountAddress = action.payload;
+    setcurrentAccount: (state, action) => {
+      state.currentAccount = action.payload;
     },
     setCurrentAccount: (state, action) => {
       state.currentAccount = action.payload;
@@ -23,7 +23,7 @@ export const accountSlice = createSlice({
   },
 });
 
-export const { setLoader, setAccountAddress, setCurrentAccount } =
+export const { setLoader, setcurrentAccount, setCurrentAccount } =
   accountSlice.actions;
 
 export default accountSlice.reducer;

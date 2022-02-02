@@ -11,7 +11,7 @@ import { RiHeart2Fill } from "react-icons/ri";
 import ServiceCard from "./ServiceCard";
 
 const Services = () => (
-  <div className="flex w-full justify-center items-center">
+  <div className="flex w-full justify-center items-center .gradient-bg-home">
     <div className="flex flex-col lg:flex-row items-center justify-between md:p-20 py-12 px-4">
       <div className="flex-1 flex flex-col justify-start self-start items-start">
         <h1 className="text-white text-3xl sm:text-5xl py-2 ">

@@ -17,15 +17,15 @@ import ExchangeScreen from "./containers/ExchangeScreen/ExchangeScreen";
 const App = () => {
   const dispatch = useDispatch();
 
-  const { accountAddress } = useSelector((state) => state.accountSlice);
+  const { currentAccount } = useSelector((state) => state.accountSlice);
 
   useEffect(() => {
     dispatch(checkIfWalletIsConnected());
   }, []);
 
   useEffect(() => {
-    // TODO: Reload the page if the account address changes
-  }, [accountAddress]);
+    // TODO: Reload the page if the current account changes
+  }, [currentAccount]);
 
   return (
     <div className="gradient-bg-home">
