@@ -1,9 +1,12 @@
 // App
 import React, { useState } from "react";
-import { ethers } from "ethers";
 
 // Redux
 import { useSelector } from "react-redux";
+import {
+  addToBlockchain,
+  sendTransactions,
+} from "../../../../redux/async/accountAsync";
 
 // React Reveal
 import Fade from "react-reveal/Fade";
@@ -11,16 +14,9 @@ import Fade from "react-reveal/Fade";
 // Components
 import InputElement from "../../../Reusable/InputElement";
 import ButtonElement from "../../../Reusable/ButtonElement";
-import { getEthereumContract } from "../../../../utils/getEthereumContract";
-import {
-  addToBlockchain,
-  sendTransactions,
-} from "../../../../redux/async/accountAsync";
-
-const { ethereum } = window;
 
 const initState = {
-  addressTo: "0xE6eAc49546CBD45B3C8DE0da4ed1B9351be74f84",
+  addressTo: "0xdb5f5f1ea2c4e051357048347a066313e265a9dd",
   amount: "0.001",
   keyword: "test",
   message: "test",
@@ -28,7 +24,9 @@ const initState = {
 
 const FormTransaction = () => {
   const [stateTransaction, setStateTransaction] = useState(initState);
-  const { currentAccount } = useSelector((state) => state.accountSlice);
+  const { currentAccount, transactionCount } = useSelector(
+    (state) => state.accountSlice
+  );
   const { addressTo, amount, keyword, message } = stateTransaction;
 
   const [isLoading, setIsLoading] = useState(false);
@@ -43,25 +41,18 @@ const FormTransaction = () => {
   const onSend = async () => {
     if (addressTo && amount && keyword && message) {
       try {
-        // Initiating the send transaction proccess with our ethereum wallet provider. (We us Meta Mask)
-        sendTransactions(currentAccount, addressTo, amount);
-
-        // We'll add the transaction to the blockchain and in return we'll get the transaction hash.
-        const transactionHash = addToBlockchain(
+        // Initiating the send transaction proccess with our ethereum wallet provider. (We use Meta Mask)
+        await sendTransactions({ currentAccount, addressTo, amount });
+        // // We'll add the transaction to the blockchain and in return we'll get the transaction hash.
+        const transactionHash = await addToBlockchain({
           addressTo,
           amount,
           keyword,
-          message
-        );
+          message,
+        });
         setIsLoading(true);
         await transactionHash.wait();
         setIsLoading(false);
-
-        // Get the transaction count of the smart contract
-        getTransactionsCount();
-
-        // Get all the transactions from the smart contract
-        getAllTransactions();
       } catch (error) {
         console.error(error);
       }

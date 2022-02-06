@@ -59,7 +59,7 @@ export const sendTransactions = async ({
       method: "eth_sendTransaction",
       params: [
         {
-          from: currentAccount[0],
+          from: currentAccount,
           to: addressTo,
           gas: "0x5208", // 21000 GWEI
           value: parsedAmount._hex, // 0.0001 ETH

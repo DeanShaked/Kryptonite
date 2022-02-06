@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   currentAccount: null,
-  currentAccount: null,
   transactionCount: null,
   isLoading: false,
   message: null,

@@ -10,6 +10,8 @@ import {
   checkIfWalletIsConnected,
   checkTransactions,
 } from "./redux/actions/accountActions";
+import { setTransactionCount } from "./redux/reducers/accountSlice";
+import { getAllTransactions } from "./redux/async/accountAsync";
 
 // Screens
 import { Navbar, Footer } from "./components";
@@ -20,16 +22,16 @@ import ExchangeScreen from "./containers/ExchangeScreen/ExchangeScreen";
 const App = () => {
   const dispatch = useDispatch();
 
-  const { currentAccount } = useSelector((state) => state.accountSlice);
+  const nfn = async () => {
+    const allTransactions = await getAllTransactions();
+    return allTransactions;
+  };
 
   useEffect(() => {
     dispatch(checkIfWalletIsConnected());
     dispatch(checkTransactions());
+    dispatch(setTransactionCount(nfn()));
   }, []);
-
-  useEffect(() => {
-    // TODO: Reload the page if the current account changes
-  }, [currentAccount]);
 
   return (
     <div className="gradient-bg-home">
