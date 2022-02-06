@@ -1,5 +1,15 @@
+// Async Requests
+import {
+  getTransactionsCount,
+  getCurrentAccount,
+  getWallet,
+} from "../async/accountAsync";
+
 // Reducers Methods
-import { setCurrentAccount } from "../reducers/accountSlice";
+import {
+  setCurrentAccount,
+  setTransactionCount,
+} from "../reducers/accountSlice";
 
 const { ethereum } = window;
 
@@ -7,26 +17,30 @@ const { ethereum } = window;
 export const checkIfWalletIsConnected = () => async (dispatch) => {
   if (!ethereum) return alert("Please Install MetaMask");
 
-  const currentAccount = await ethereum.request({ method: "eth_accounts" });
+  const currentAccount = await getCurrentAccount();
 
-  if (currentAccount.length) {
-    dispatch(setCurrentAccount(currentAccount[0]));
-  } else {
-    console.log("No account found");
+  if (currentAccount) dispatch(setCurrentAccount(currentAccount));
+  else console.log("No account found");
+};
+
+// Checks for the amount of transactions under the smart contract.
+export const checkTransactions = () => async (dispatch) => {
+  const transactions = await getTransactionsCount();
+  if (transactions) dispatch(setTransactionCount(transactions));
+  else {
+    console.log("No transactions found.");
   }
-
-  console.log("currentAccount[0] :>> ", currentAccount[0]);
 };
 
 // This function collect the wallet account.... will expand later
 export const connectWallet = () => async (dispatch) => {
-  try {
-    if (!ethereum) return alert("Please install meta mask");
-    const currentAccount = await ethereum.request({
-      method: "eth_requestAccounts",
-    });
-    dispatch(setCurrentAccount(currentAccount[0]));
-  } catch (error) {
-    console.error(error);
-  }
+  if (!ethereum) return alert("Please install meta mask");
+
+  // If you have meta mask installed it means you have an interface with
+  // the ethereum object which allows you to fetch information from the wallet
+  // such as the current active account, wallet address, account balance, etc..
+  const currentAccount = await getWallet();
+
+  if (currentAccount) dispatch(setCurrentAccount(currentAccount));
+  else console.log("No account found");
 };

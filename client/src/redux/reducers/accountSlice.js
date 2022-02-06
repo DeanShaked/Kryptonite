@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   currentAccount: null,
   currentAccount: null,
+  transactionCount: null,
   isLoading: false,
   message: null,
 };
@@ -11,8 +12,8 @@ export const accountSlice = createSlice({
   name: "account",
   initialState,
   reducers: {
-    setcurrentAccount: (state, action) => {
-      state.currentAccount = action.payload;
+    setTransactionCount: (state, action) => {
+      state.transactionCount = action.payload;
     },
     setCurrentAccount: (state, action) => {
       state.currentAccount = action.payload;
@@ -23,7 +24,11 @@ export const accountSlice = createSlice({
   },
 });
 
-export const { setLoader, setcurrentAccount, setCurrentAccount } =
-  accountSlice.actions;
+export const {
+  setLoader,
+  setcurrentAccount,
+  setCurrentAccount,
+  setTransactionCount,
+} = accountSlice.actions;
 
 export default accountSlice.reducer;

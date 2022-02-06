@@ -12,6 +12,10 @@ import Fade from "react-reveal/Fade";
 import InputElement from "../../../Reusable/InputElement";
 import ButtonElement from "../../../Reusable/ButtonElement";
 import { getEthereumContract } from "../../../../utils/getEthereumContract";
+import {
+  addToBlockchain,
+  sendTransactions,
+} from "../../../../redux/async/accountAsync";
 
 const { ethereum } = window;
 
@@ -27,9 +31,6 @@ const FormTransaction = () => {
   const { currentAccount } = useSelector((state) => state.accountSlice);
   const { addressTo, amount, keyword, message } = stateTransaction;
 
-  const [transactionCount, setTransactionCount] = useState(
-    localStorage.getItem("transactionCount") || 0
-  );
   const [isLoading, setIsLoading] = useState(false);
 
   const updateState = (name, event) => {
@@ -42,37 +43,25 @@ const FormTransaction = () => {
   const onSend = async () => {
     if (addressTo && amount && keyword && message) {
       try {
-        // Getting the smart contract instance.
-        const transactionContract = getEthereumContract();
-        const parsedAmount = ethers.utils.parseEther(amount);
+        // Initiating the send transaction proccess with our ethereum wallet provider. (We us Meta Mask)
+        sendTransactions(currentAccount, addressTo, amount);
 
-        await ethereum.request({
-          method: "eth_sendTransaction",
-          params: [
-            {
-              from: currentAccount[0],
-              to: addressTo,
-              gas: "0x5208", // 21000 GWEI
-              value: parsedAmount._hex, // 0.0001 ETH
-            },
-          ],
-        });
-
-        const transactionHash = await transactionContract.addToBlockchain(
+        // We'll add the transaction to the blockchain and in return we'll get the transaction hash.
+        const transactionHash = addToBlockchain(
           addressTo,
-          parsedAmount,
+          amount,
           keyword,
           message
         );
-
         setIsLoading(true);
         await transactionHash.wait();
         setIsLoading(false);
 
-        const transactionCount =
-          await transactionContract.getTransactionCount();
-        setTransactionCount(transactionCount);
-        setStateTransaction(transactionContract.toNumber());
+        // Get the transaction count of the smart contract
+        getTransactionsCount();
+
+        // Get all the transactions from the smart contract
+        getAllTransactions();
       } catch (error) {
         console.error(error);
       }

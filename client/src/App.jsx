@@ -6,7 +6,10 @@ import { Routes, Route } from "react-router-dom";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { checkIfWalletIsConnected } from "./redux/actions/accountActions";
+import {
+  checkIfWalletIsConnected,
+  checkTransactions,
+} from "./redux/actions/accountActions";
 
 // Screens
 import { Navbar, Footer } from "./components";
@@ -21,6 +24,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkIfWalletIsConnected());
+    dispatch(checkTransactions());
   }, []);
 
   useEffect(() => {
