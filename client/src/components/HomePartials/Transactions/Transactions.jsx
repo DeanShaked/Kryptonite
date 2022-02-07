@@ -4,6 +4,7 @@ import Fade from "react-reveal/Fade";
 
 // Redux
 import { useSelector } from "react-redux";
+import { getAllTransactions } from "../../../redux/async/accountAsync";
 
 // Components
 import TransactionsCard from "./TransactionsCard";
@@ -13,6 +14,9 @@ import dummyData from "../../../utils/dummyData";
 
 const Transactions = () => {
   const { currentAccount } = useSelector((state) => state.accountSlice);
+
+  console.log("avaiableTransactions", avaiableTransactions);
+
   return (
     <div className="flex w-full justify-center items-center 2xl:px-20">
       <div className="flex flex-col md:p-12 py-12 px-4">

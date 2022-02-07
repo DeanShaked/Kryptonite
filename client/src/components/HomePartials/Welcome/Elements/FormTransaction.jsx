@@ -2,11 +2,12 @@
 import React, { useState } from "react";
 
 // Redux
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addToBlockchain,
   sendTransactions,
 } from "../../../../redux/async/accountAsync";
+import { setLoader } from "../../../../redux/reducers/accountSlice";
 
 // React Reveal
 import Fade from "react-reveal/Fade";
@@ -14,22 +15,22 @@ import Fade from "react-reveal/Fade";
 // Components
 import InputElement from "../../../Reusable/InputElement";
 import ButtonElement from "../../../Reusable/ButtonElement";
+import { Loader } from "../../..";
 
 const initState = {
-  addressTo: "0xdb5f5f1ea2c4e051357048347a066313e265a9dd",
+  addressTo: "0x3f513bB285f243FFf50B2Ec6BDd906376d2Dd1f0",
   amount: "0.001",
   keyword: "test",
   message: "test",
 };
 
 const FormTransaction = () => {
+  const dispatch = useDispatch();
   const [stateTransaction, setStateTransaction] = useState(initState);
-  const { currentAccount, transactionCount } = useSelector(
+  const { currentAccount, isLoading } = useSelector(
     (state) => state.accountSlice
   );
   const { addressTo, amount, keyword, message } = stateTransaction;
-
-  const [isLoading, setIsLoading] = useState(false);
 
   const updateState = (name, event) => {
     setStateTransaction((prevState) => ({
@@ -50,9 +51,9 @@ const FormTransaction = () => {
           keyword,
           message,
         });
-        setIsLoading(true);
+        dispatch(setLoader(true));
         await transactionHash.wait();
-        setIsLoading(false);
+        dispatch(setLoader(false));
       } catch (error) {
         console.error(error);
       }
@@ -93,14 +94,18 @@ const FormTransaction = () => {
             name={"message"}
             isError={isError}
           />
-          <div className="--silver-border --gradient-silver outline-none border-none shadow-lg rounded-lg mb-3">
-            <ButtonElement
-              title={"Send Now"}
-              backgroundColor={"green"}
-              textColor={"white"}
-              onClick={onSend}
-            />
-          </div>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <div className="--silver-border --gradient-silver outline-none border-none shadow-lg rounded-lg mb-3">
+              <ButtonElement
+                title={"Send Now"}
+                backgroundColor={"green"}
+                textColor={"white"}
+                onClick={onSend}
+              />
+            </div>
+          )}
         </div>
       </div>
     </Fade>
