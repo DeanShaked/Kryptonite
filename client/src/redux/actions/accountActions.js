@@ -3,10 +3,12 @@ import {
   getTransactionsCount,
   getCurrentAccount,
   getWallet,
+  getAllTransactions,
 } from "../async/accountAsync";
 
 // Reducers Methods
 import {
+  setAvaiableTransactions,
   setCurrentAccount,
   setTransactionCount,
 } from "../reducers/accountSlice";
@@ -45,6 +47,9 @@ export const connectWallet = () => async (dispatch) => {
   else console.log("No account found");
 };
 
-export const getAvaialableTransactions = async () => {
+export const getAvaialableTransactions = () => async (dispatch) => {
   const avaiableTransactions = await getAllTransactions();
+  if (avaiableTransactions)
+    dispatch(setAvaiableTransactions(avaiableTransactions));
+  else console.log("No transactions found");
 };

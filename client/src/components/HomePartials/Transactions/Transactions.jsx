@@ -1,10 +1,10 @@
 // App
-import React from "react";
+import React, { useEffect } from "react";
 import Fade from "react-reveal/Fade";
 
 // Redux
-import { useSelector } from "react-redux";
-import { getAllTransactions } from "../../../redux/async/accountAsync";
+import { useDispatch, useSelector } from "react-redux";
+import { getAvaialableTransactions } from "../../../redux/actions/accountActions";
 
 // Components
 import TransactionsCard from "./TransactionsCard";
@@ -13,9 +13,9 @@ import TransactionsCard from "./TransactionsCard";
 import dummyData from "../../../utils/dummyData";
 
 const Transactions = () => {
-  const { currentAccount } = useSelector((state) => state.accountSlice);
-
-  console.log("avaiableTransactions", avaiableTransactions);
+  const { currentAccount, avaiableTransactions } = useSelector(
+    (state) => state.accountSlice
+  );
 
   return (
     <div className="flex w-full justify-center items-center 2xl:px-20">
@@ -32,7 +32,7 @@ const Transactions = () => {
 
         <Fade delay={200}>
           <div className="flex flex-wrap justify-center items-center mt-10">
-            {dummyData.reverse().map((transaction, i) => {
+            {avaiableTransactions?.map((transaction, i) => {
               return <TransactionsCard key={i} {...transaction} />;
             })}
           </div>
