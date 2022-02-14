@@ -1,3 +1,3 @@
 # Kryptonite
 
-## Sending transactions on Ropsten (Ethereum test env)
+Sending transactions on Ropsten (Ethereum test env)
