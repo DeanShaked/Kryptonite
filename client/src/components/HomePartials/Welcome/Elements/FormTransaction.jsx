@@ -44,7 +44,7 @@ const FormTransaction = () => {
       try {
         // Initiating the send transaction proccess with our ethereum wallet provider. (We use Meta Mask)
         await sendTransactions({ currentAccount, addressTo, amount });
-        // // We'll add the transaction to the blockchain and in return we'll get the transaction hash.
+        // We'll add the transaction to the blockchain and in return we'll get the transaction hash.
         const transactionHash = await addToBlockchain({
           addressTo,
           amount,

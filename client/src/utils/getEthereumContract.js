@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { contractABI, contractAddress } from "./constants";
+import { transactionsABI, transactionsContractAddress } from "./constants";
 
 const { ethereum } = window;
 
@@ -14,8 +14,8 @@ export const getEthereumContract = () => {
 
   // Now we can create an instance of the contract using the ethers.
   const transactionContract = new ethers.Contract(
-    contractAddress,
-    contractABI,
+    transactionsContractAddress,
+    transactionsABI,
     signer
   );
   return transactionContract;
