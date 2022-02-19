@@ -9,7 +9,6 @@ const HomeScreen = () => {
       <Welcome />
       <Services />
       <Transactions />
-      {/* <MarketInfo /> */}
     </div>
   );
 };
