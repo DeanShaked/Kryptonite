@@ -1,32 +1,15 @@
 import React from "react";
+
+// Components
 import InputElement from "../../Reusable/InputElement";
 
+// Fixture
+import { inputs } from "../../../fixture/market-navbar.json";
+
 const SellAsset = () => {
-  const inputs = [
-    {
-      id: "1",
-      placeholder: "Asset Name",
-      type: "text",
-    },
-    {
-      id: "2",
-      placeholder: "Asset Description",
-      type: "textarea",
-    },
-    {
-      id: "3",
-      placeholder: "Asset Price in ETH",
-      type: "text",
-    },
-    {
-      id: "4",
-      placeholder: "upload",
-      type: "file",
-    },
-  ];
   return (
-    <div className="h-[455px] flex justify-center">
-      <div className="h-full w-96 flex flex-col p-10 --silver-border">
+    <div className="h-[455px] --silver-border --gradient-blue-silver shadow-lg rounded-2xl w-[516px] mx-auto">
+      <div className="flex flex-col justify-center items-center mt-4">
         {inputs.map((input) => {
           if (+input.id === 4) {
             return (
@@ -36,8 +19,9 @@ const SellAsset = () => {
             );
           } else {
             return (
-              <div className="mt-8">
+              <div className="mt-8" key={input.id}>
                 <InputElement
+                  key={input.id}
                   width={"96"}
                   type={input.type}
                   placeholder={input?.placeholder}

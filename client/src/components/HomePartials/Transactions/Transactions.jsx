@@ -9,9 +9,6 @@ import { getAvaialableTransactions } from "../../../redux/actions/accountActions
 // Components
 import TransactionsCard from "./TransactionsCard";
 
-// Fixtures
-import dummyData from "../../../utils/dummyData";
-
 const Transactions = () => {
   const { currentAccount, avaiableTransactions } = useSelector(
     (state) => state.accountSlice

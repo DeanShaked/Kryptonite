@@ -1,11 +1,16 @@
 import React from "react";
+import AssetCard from "../../Reusable/AssetCard";
 
 const MyAssets = () => {
   return (
-    <div className="h-[455px] ">
-      <h2 className="text-white">My Assets</h2>
-      <div className="flex flex-wrap flex-row">
-        {/* TODO: map over the nft cards */}
+    <div className="h-full flex flex-col items-center justify-start mt-0 mb-10">
+      {/* TODO: map over the nft cards */}
+      <div className="flex flex-wrap space-x-12 mx-4 justify-center mb-10">
+        <AssetCard />
+        <AssetCard />
+        <AssetCard />
+        <AssetCard />
+        <AssetCard />
       </div>
     </div>
   );

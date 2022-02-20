@@ -1,0 +1,24 @@
+{
+  "inputs": [
+    {
+      "id": "1",
+      "placeholder": "Asset Name",
+      "type": "text"
+    },
+    {
+      "id": "2",
+      "placeholder": "Asset Description",
+      "type": "textarea"
+    },
+    {
+      "id": "3",
+      "placeholder": "Asset Price in ETH",
+      "type": "text"
+    },
+    {
+      "id": "4",
+      "placeholder": "upload",
+      "type": "file"
+    }
+  ]
+}
