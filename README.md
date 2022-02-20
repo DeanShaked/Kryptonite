@@ -1,5 +1,5 @@
 # Kryptonite
-**This project runs on Ethereum Ropsten (Test environment)**
+**This project is configured to run on Ethereum Ropsten (Test environment)**
 
 - Send transactions
 - View your transactions
