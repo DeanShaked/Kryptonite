@@ -4,5 +4,5 @@
 - Send transactions
 - View your transactions
 - Create & Sell NFT
-- NFT Market Place
-- View your own collection
+- Creator dashboard
+- View your collection 
