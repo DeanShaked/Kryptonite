@@ -1,3 +1,8 @@
 # Kryptonite
+**This project is configured to run on Ethereum Ropsten (Test environment)**
 
-Sending transactions on Ropsten (Ethereum test env)
+- Send transactions
+- View your transactions
+- Create & Sell NFT
+- Creator dashboard
+- View your collection 
