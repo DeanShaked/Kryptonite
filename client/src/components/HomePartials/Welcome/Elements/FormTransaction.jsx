@@ -67,6 +67,7 @@ const FormTransaction = () => {
       <div className=" --silver-border --gradient-blue-silver shadow-lg rounded-2xl h-[420px] w-[516px] mx-auto">
         <div className="flex flex-col h-[80%] justify-around items-center translate-y-20 w-full">
           <InputElement
+            width="80"
             value={addressTo}
             placeholder={"Address To"}
             onChange={updateState.bind(this, "addressTo")}
@@ -74,6 +75,7 @@ const FormTransaction = () => {
             isError={isError}
           />
           <InputElement
+            width="80"
             value={amount}
             placeholder={"Amount"}
             onChange={updateState.bind(this, "amount")}
@@ -81,6 +83,7 @@ const FormTransaction = () => {
             isError={isError}
           />
           <InputElement
+            width="80"
             value={keyword}
             placeholder={"Keyword"}
             onChange={updateState.bind(this, "keyword")}
@@ -88,6 +91,7 @@ const FormTransaction = () => {
             isError={isError}
           />
           <InputElement
+            width="80"
             value={message}
             placeholder={"Message"}
             onChange={updateState.bind(this, "message")}
