@@ -1,10 +1,10 @@
 import { ethers } from "ethers";
-import { transactionsABI, transactionsContractAddress } from "./constants";
+import { nftABI, nftContractAddress } from "./constants";
 
 const { ethereum } = window;
 
 // Getting the smart contract instance.
-export const getEthereumContract = () => {
+export const getNftContract = () => {
   // ethers - our node provider, will help us connect to the ethereum network.
   // Something like: Bezeq is a provider for the internet.
   const provider = new ethers.providers.Web3Provider(ethereum);
@@ -13,10 +13,6 @@ export const getEthereumContract = () => {
   const signer = provider.getSigner();
 
   // Now we can create an instance of the contract using the ethers.
-  const transactionContract = new ethers.Contract(
-    transactionsContractAddress,
-    transactionsABI,
-    signer
-  );
-  return transactionContract;
+  const nftContract = new ethers.Contract(nftContractAddress, nftABI, signer);
+  return nftContract;
 };

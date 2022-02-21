@@ -9,6 +9,8 @@ import {
   getAvaialableTransactions,
 } from "../../redux/actions/accountActions";
 
+import { fetchAllMarketItems } from "../../redux/actions/marketActions";
+
 const OnPageLoad = () => {
   const dispatch = useDispatch();
 
@@ -16,6 +18,7 @@ const OnPageLoad = () => {
     await dispatch(checkIfWalletIsConnected());
     await dispatch(checkTransactions());
     await dispatch(getAvaialableTransactions());
+    await dispatch(fetchAllMarketItems());
   }, []);
   return null;
 };

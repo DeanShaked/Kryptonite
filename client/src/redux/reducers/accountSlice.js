@@ -34,6 +34,7 @@ export const accountSlice = createSlice({
     setCurrentAccount: (state, action) => {
       state.currentAccount = action.payload;
     },
+
     setLoader: (state) => {
       state.isLoading = true;
     },
@@ -43,7 +44,6 @@ export const accountSlice = createSlice({
 export const {
   setLoader,
   setAvaiableTransactions,
-  setcurrentAccount,
   setCurrentAccount,
   setTransactionCount,
 } = accountSlice.actions;

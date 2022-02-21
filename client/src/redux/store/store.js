@@ -3,9 +3,11 @@ import { combineReducers } from "redux";
 
 // Reducers
 import accountSlice from "../reducers/accountSlice";
+import marketSlice from "../reducers/marketSlice";
 
 const rootReducer = combineReducers({
   accountSlice,
+  marketSlice,
 });
 
 const store = configureStore({

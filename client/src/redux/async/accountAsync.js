@@ -1,5 +1,5 @@
-import { getEthereumContract } from "../../utils/getEthereumContract";
 import { ethers } from "ethers";
+import { getEthereumContract } from "../../utils/getEthereumContract";
 
 // Getting the smart contract instance.
 const transactionContract = getEthereumContract();
