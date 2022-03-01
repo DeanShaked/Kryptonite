@@ -1,22 +1,18 @@
 // SPDX-License-IdentifierL: MIT
 pragma solidity ^0.8.4;
 
+import "@openzeppelin/contracts/utils/Counters.sol";
+
 contract Transactions {
-    uint256 transactionCount;
+    using Counters for Counters.Counter;
+    Counters.Counter private transactionCount;
 
-    event Transfer(
-        address from,
-        address receiver,
-        uint256 amount,
-        string message,
-        uint256 timestamp,
-        string keyword
-    );
-
+    event Transfer(address from, address receiver, uint amount, string message, uint256 timestamp, string keyword);
+  
     struct TransferStruct {
         address sender;
         address receiver;
-        uint256 amount;
+        uint amount;
         string message;
         uint256 timestamp;
         string keyword;
@@ -24,39 +20,15 @@ contract Transactions {
 
     TransferStruct[] transactions;
 
-    function addToBlockchain(
-        address payable receiver,
-        uint256 amount,
-        string memory message,
-        string memory keyword
-    ) public {
-        transactionCount += 1;
-        transactions.push(
-            TransferStruct(
-                msg.sender,
-                receiver,
-                amount,
-                message,
-                block.timestamp,
-                keyword
-            )
-        );
+    function addToBlockchain(address payable receiver, uint amount, string memory message, string memory keyword) public {
+        transactionCount.increment();
+        uint256 newTransaction = transactionCount.current();
+        transactions.push(TransferStruct(msg.sender, receiver, amount, message, block.timestamp, keyword));
 
-        emit Transfer(
-            msg.sender,
-            receiver,
-            amount,
-            message,
-            block.timestamp,
-            keyword
-        );
+        emit Transfer(msg.sender, receiver, amount, message, block.timestamp, keyword);
     }
 
-    function getAllTransactions()
-        public
-        view
-        returns (TransferStruct[] memory)
-    {
+    function getAllTransactions() public view returns (TransferStruct[] memory) {
         return transactions;
     }
 

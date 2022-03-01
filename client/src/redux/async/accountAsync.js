@@ -66,6 +66,7 @@ export const sendTransactions = async ({
         },
       ],
     });
+    console.log("transaction :>> ", transaction);
     return transaction;
   } catch (error) {
     console.error(error);

@@ -14,11 +14,11 @@ import { fetchAllMarketItems } from "../../redux/actions/marketActions";
 const OnPageLoad = () => {
   const dispatch = useDispatch();
 
-  useEffect(async () => {
-    await dispatch(checkIfWalletIsConnected());
-    await dispatch(checkTransactions());
-    await dispatch(getAvaialableTransactions());
-    await dispatch(fetchAllMarketItems());
+  useEffect(() => {
+    dispatch(checkIfWalletIsConnected());
+    dispatch(checkTransactions());
+    dispatch(getAvaialableTransactions());
+    dispatch(fetchAllMarketItems());
   }, []);
   return null;
 };

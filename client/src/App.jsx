@@ -10,6 +10,7 @@ import OnPageLoad from "./containers/OnPageLoad/OnPageLoad";
 import SellAsset from "./components/MarketPartials/SellAsset/SellAsset";
 import MyAssets from "./components/MarketPartials/MyAssets/MyAssets";
 import Dashboard from "./components/MarketPartials/Dashboard/Dashboard";
+import HomeMarket from "./components/MarketPartials/HomeMarket/HomeMarket";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Routes>
           <Route exact path={"/"} element={<HomeScreen />} />
           <Route path={"/market"} element={<MarketScreen />}>
+            <Route index element={<HomeMarket />} />
             <Route path="sell-asset" element={<SellAsset />} />
             <Route path="my-assets" element={<MyAssets />} />
             <Route path="dashboard" element={<Dashboard />} />

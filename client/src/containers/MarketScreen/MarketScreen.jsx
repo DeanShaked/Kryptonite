@@ -1,5 +1,5 @@
 // React Router Dom
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 // Components
 import MarketNavBar from "../../components/MarketPartials/MakretNavbar/MarketNavBar";
@@ -10,6 +10,7 @@ const MarketScreen = () => {
       <div className="h-36 text-white ">
         <MarketNavBar />
       </div>
+
       <Outlet />
     </div>
   );

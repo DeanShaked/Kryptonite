@@ -55,28 +55,30 @@ describe("Transactions", function () {
     const transactions = await Transactions.deploy();
     await transactions.deployed();
 
-    /* General init */
-    const transactionsAddress = transactions.address;
-    const [senderAddress] = await ethers.getSigners();
-    const bigNumber = ethers.utils.parseUnits("1", "ether");
+    console.log("transactions :>> ", await transactions.getAllTransactions());
 
-    const addressTo = senderAddress.address;
-    const amount = bigNumber;
-    const keyword = "hello world";
-    const message = "Hello World";
+    // /* General init */
+    // const transactionsAddress = transactions.address;
+    // const [senderAddress] = await ethers.getSigners();
+    // const bigNumber = ethers.utils.parseUnits("1", "ether");
 
-    console.log("addressTo :>> ", addressTo);
-    console.log("amount :>> ", amount);
-    console.log("keyword :>> ", keyword);
-    console.log("message :>> ", message);
+    // const addressTo = senderAddress.address;
+    // const amount = bigNumber;
+    // const keyword = "hello world";
+    // const message = "Hello World";
 
-    await transactionsAddress;
-    /* Add transaction to the blockchain */
-    await transactions.addToBlockchain({
-      addressTo,
-      amount,
-      keyword,
-      message,
-    });
+    // console.log("addressTo :>> ", addressTo);
+    // console.log("amount :>> ", amount);
+    // console.log("keyword :>> ", keyword);
+    // console.log("message :>> ", message);
+
+    // await transactionsAddress;
+    // /* Add transaction to the blockchain */
+    // await transactions.addToBlockchain({
+    //   addressTo,
+    //   amount,
+    //   keyword,
+    //   message,
+    // });
   });
 });

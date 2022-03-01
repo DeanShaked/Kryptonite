@@ -30,7 +30,7 @@ export const checkTransactions = () => async (dispatch) => {
   const transactions = await getTransactionsCount();
   if (transactions) dispatch(setTransactionCount(transactions));
   else {
-    console.log("No transactions found.");
+    console.log("No transactions count found.");
   }
 };
 
