@@ -1,11 +1,9 @@
-// SPDX-License-IdentifierL: MIT
+// SPDX-License-Identifier: UNLICENSED
+
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/utils/Counters.sol";
-
 contract Transactions {
-    using Counters for Counters.Counter;
-    Counters.Counter private transactionCount;
+    uint256 transactionCount;
 
     event Transfer(address from, address receiver, uint amount, string message, uint256 timestamp, string keyword);
   
@@ -21,8 +19,7 @@ contract Transactions {
     TransferStruct[] transactions;
 
     function addToBlockchain(address payable receiver, uint amount, string memory message, string memory keyword) public {
-        transactionCount.increment();
-        uint256 newTransaction = transactionCount.current();
+        transactionCount += 1;
         transactions.push(TransferStruct(msg.sender, receiver, amount, message, block.timestamp, keyword));
 
         emit Transfer(msg.sender, receiver, amount, message, block.timestamp, keyword);
