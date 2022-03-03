@@ -47,9 +47,8 @@ export const connectWallet = () => async (dispatch) => {
   else console.log("No account found");
 };
 
-export const getAvaialableTransactions = () => async (dispatch) => {
-  const avaiableTransactions = await getAllTransactions();
-  if (avaiableTransactions)
-    dispatch(setAvaiableTransactions(avaiableTransactions));
+export const getAllTransactions = () => async (dispatch) => {
+  const transactions = await getAllTransactions();
+  if (transactions) dispatch(setTransactions(transactions));
   else console.log("No transactions found");
 };

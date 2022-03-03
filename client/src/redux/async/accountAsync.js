@@ -96,9 +96,8 @@ export const addToBlockchain = async ({
 // Get all visible transactions from the smart contract.
 export const getAllTransactions = async () => {
   try {
-    const availableTransactions =
-      await transactionContract.getAllTransactions();
-    return availableTransactions;
+    const transactions = await transactionContract.getAllTransactions();
+    return transactions;
   } catch (error) {
     console.error(error);
   }
