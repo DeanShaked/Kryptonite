@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 // Redux
 import {
   checkIfWalletIsConnected,
-  checkTransactions,
+  getAllTransactionsCount,
   getAvaialableTransactions,
 } from "../../redux/actions/accountActions";
 
@@ -16,7 +16,7 @@ const OnPageLoad = () => {
 
   useEffect(() => {
     dispatch(checkIfWalletIsConnected());
-    dispatch(checkTransactions());
+    dispatch(getAllTransactionsCount());
     dispatch(getAvaialableTransactions());
     dispatch(fetchAllMarketItems());
   }, []);
