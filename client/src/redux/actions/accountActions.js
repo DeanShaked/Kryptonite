@@ -26,7 +26,7 @@ export const checkIfWalletIsConnected = () => async (dispatch) => {
 };
 
 // Checks for the amount of transactions under the smart contract.
-export const checkTransactions = () => async (dispatch) => {
+export const getAllTransactionsCount = () => async (dispatch) => {
   const transactions = await getTransactionsCount();
   if (transactions) dispatch(setTransactionCount(transactions));
   else {
@@ -47,9 +47,8 @@ export const connectWallet = () => async (dispatch) => {
   else console.log("No account found");
 };
 
-export const getAvaialableTransactions = () => async (dispatch) => {
-  const avaiableTransactions = await getAllTransactions();
-  if (avaiableTransactions)
-    dispatch(setAvaiableTransactions(avaiableTransactions));
+export const getAllTransactions = () => async (dispatch) => {
+  const transactions = await getAllTransactions();
+  if (transactions) dispatch(setTransactions(transactions));
   else console.log("No transactions found");
 };

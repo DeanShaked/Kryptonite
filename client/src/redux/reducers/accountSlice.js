@@ -4,7 +4,7 @@ import { getAllTransactions } from "../async/accountAsync";
 const initialState = {
   currentAccount: null,
   transactionCount: null,
-  avaiableTransactions: null,
+  transactions: null,
   isLoading: false,
   message: null,
 };
@@ -13,7 +13,7 @@ export const accountSlice = createSlice({
   name: "account",
   initialState,
   reducers: {
-    setAvaiableTransactions: (state, action) => {
+    setTransactions: (state, action) => {
       const availableTransactions = action.payload;
       const structuredTransactions = availableTransactions.map(
         (transaction) => ({
