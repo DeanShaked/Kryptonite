@@ -4,7 +4,7 @@ import Fade from "react-reveal/Fade";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { getAvaialableTransactions } from "../../../redux/actions/accountActions";
+import { getTransactions } from "../../../redux/actions/accountActions";
 
 // Components
 import TransactionsCard from "./TransactionsCard";

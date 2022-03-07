@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllTransactions } from "../async/accountAsync";
 
 const initialState = {
   currentAccount: null,
