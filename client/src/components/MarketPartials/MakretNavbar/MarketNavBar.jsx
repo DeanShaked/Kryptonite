@@ -13,7 +13,7 @@ const MarketNavBar = () => {
               : " p-4 text-white "
           }
         >
-          Sell Digital Asset
+          Create New NFT
         </NavLink>
       </li>
       <li className="text-2xl hover:opacity-80">
@@ -25,7 +25,7 @@ const MarketNavBar = () => {
               : "text-white p-4"
           }
         >
-          My Digital Assets
+          My NFT Collection
         </NavLink>
       </li>
       <li className="text-2xl hover:opacity-80">
@@ -37,7 +37,7 @@ const MarketNavBar = () => {
               : "text-white p-4"
           }
         >
-          Creator Dasboard
+          Creator Dashboard
         </NavLink>
       </li>
     </ul>

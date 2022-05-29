@@ -1,13 +1,9 @@
-// App
-import { NavLink } from "react-router-dom";
-
 // Redux
 import { useSelector } from "react-redux";
 
 // Components & Assets
 import ConnectWallet from "./Elements/ConnectWallet";
 import NavbarItem from "./Elements/NavbarItem";
-import LogoSvg from "../../../assets/images/logo.svg?component";
 
 // Fixture
 import { menu } from "../../fixture/navbar.json";
@@ -20,18 +16,15 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full items-center justify-evenly flex flex-row h-32">
-        <div className="flex">
-          <NavLink exact="true" to={"/"}>
-            <LogoSvg className="w-[108px] cursor-pointer" />
-          </NavLink>
-        </div>
-        <ul className="flex justify-center items-center p">{createNav}</ul>
-        {!currentAccount ? (
-          <ConnectWallet />
-        ) : (
-          <div className="flex w-[143px]"></div>
-        )}
+      <nav className="w-full items-center flex flex-row h-32">
+        <ul className="flex justify-center items-center w-full px-10">
+          <div className="flex justify-center pl-14 flex-grow">{createNav}</div>
+          {!currentAccount ? (
+            <ConnectWallet />
+          ) : (
+            <div className="flex w-[143px]"></div>
+          )}
+        </ul>
       </nav>
       <hr />
     </>

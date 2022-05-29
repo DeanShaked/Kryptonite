@@ -2,12 +2,12 @@
   "menu": [
     {
       "id": 1,
-      "title": "Home",
+      "title": "Transactions",
       "route": "/"
     },
     {
       "id": 2,
-      "title": "Market",
+      "title": "Market Place",
       "route": "/market"
     },
     {
