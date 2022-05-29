@@ -16,11 +16,11 @@ contract Transactions {
         string keyword;
     }
 
-    mapping(uint256 => TransferStruct) transactions;
+    TransferStruct[] transactions;
 
     function addToBlockchain(address payable receiver, uint amount, string memory message, string memory keyword) public {
         transactionCount += 1;
-        transactions[transactionCount] = TransferStruct(msg.sender, receiver, amount, message, block.timestamp, keyword);
+        transactions.push(TransferStruct(msg.sender, receiver, amount, message, block.timestamp, keyword));
 
         emit Transfer(msg.sender, receiver, amount, message, block.timestamp, keyword);
     }

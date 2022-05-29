@@ -1,7 +1,7 @@
 /* importing all abi's */
 import transactionsAbi from "../fixture/Transactions.json";
-import NftMarketAbi from "../fixture/Transactions.json";
-import NftAbi from "../fixture/Transactions.json";
+import NftMarketAbi from "../fixture/NFTMarket.json";
+import NftAbi from "../fixture/NFT.json";
 
 /* Transactions contract*/
 export const transactionsABI = transactionsAbi.abi;
