@@ -8,7 +8,7 @@ import {
 
 // Reducers Methods
 import {
-  setAvaiableTransactions,
+  setTransactions,
   setCurrentAccount,
   setTransactionCount,
 } from "../reducers/accountSlice";

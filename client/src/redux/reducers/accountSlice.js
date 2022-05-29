@@ -43,7 +43,7 @@ export const accountSlice = createSlice({
 
 export const {
   setLoader,
-  setAvaiableTransactions,
+  setTransactions,
   setCurrentAccount,
   setTransactionCount,
 } = accountSlice.actions;
