@@ -14,7 +14,7 @@ exports.createDeploymentFile = async (contracts) => {
     const titles = ["Transactions", "NFTMarket", "NFT"];
     const fileObject = {
       address: contract.address,
-      owner: contract.owner,
+      owner: contract.signer.address,
       title: titles[index],
     };
     const contractData = writeContract(fileObject);

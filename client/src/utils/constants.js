@@ -6,13 +6,13 @@ import NftAbi from "../fixture/NFT.json";
 /* Transactions contract*/
 export const transactionsABI = transactionsAbi.abi;
 export const transactionsContractAddress =
-  "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  "0xEae40ccbB427d2D31AAE1ADFC2C5cA1388f84d4e";
 
 /* NFTMarket contract*/
 export const nftMarketABI = NftMarketAbi.abi;
 export const nftMarketContractAddress =
-  "0x84302dbb199bbb69eef05955b192f42db4dc42ba";
+  "0xf0Cb2f672AFD30D6244332bA775f254316076F63";
 
 /* NFT contract*/
 export const nftABI = NftAbi.abi;
-export const nftContractAddress = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0";
+export const nftContractAddress = "0xF7e4f9360743242f626ae86a5597422e015135d7";
