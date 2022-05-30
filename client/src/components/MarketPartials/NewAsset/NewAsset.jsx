@@ -32,7 +32,7 @@ const NewAsset = () => {
                   value={values.description}
                   width={"96"}
                   type="textarea"
-                  placeholder="Asset Description"
+                  placeholder="Asset Descriptions"
                 />
               </div>
               <div className="mt-8">
