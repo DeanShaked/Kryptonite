@@ -1,7 +1,7 @@
 // React Reveal
 import Fade from "react-reveal/Fade";
 
-const cWelcomeIntro = () => {
+const WelcomeIntro = () => {
   return (
     <Fade duration={3000}>
       <div className="flex flex-col w-full h-full px-28 py-20 pt-28 md:p-5 lg:p-10">

@@ -20,8 +20,8 @@ import { Loader } from "../../..";
 const initState = {
   addressTo: "0x3f513bB285f243FFf50B2Ec6BDd906376d2Dd1f0",
   amount: "0.001",
-  keyword: "test",
-  message: "test",
+  keyword: "",
+  message: "",
 };
 
 const FormTransaction = () => {
@@ -57,7 +57,7 @@ const FormTransaction = () => {
           message,
         });
         dispatch(setLoader(true));
-        const res = await transactionHash.wait();
+        transactionHash.wait();
         dispatch(setLoader(false));
       } catch (error) {
         console.error(error);
