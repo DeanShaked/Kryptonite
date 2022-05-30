@@ -11,7 +11,7 @@ const InputElement = ({
   type,
 }) => {
   return (
-    <div className="">
+    <div className="mt-8">
       <div className="">
         <input
           className={`h-6 w-${width} p-5 rounded-md outline-none bg-regular placeholder:text-grey text-white`}

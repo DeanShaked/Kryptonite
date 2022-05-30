@@ -1,8 +1,10 @@
 // App
 import React from "react";
+
+// External Libraries
 import { Formik } from "formik";
 
-// Components
+// Components & Styles
 import InputElement from "../../Reusable/InputElement";
 
 const NewAsset = () => {
@@ -14,50 +16,51 @@ const NewAsset = () => {
             name: "X Æ A-12",
             description: "Elon Musk's son name",
             price: "0.25",
-            file: "",
+            file: null,
+          }}
+          onSubmit={(values) => {
+            console.log(values);
           }}
         >
           {({ values, handleChange, handleSubmit }) => (
-            <>
-              <div className="mt-8">
-                <InputElement
-                  value={values.name}
-                  width={"96"}
-                  type="text"
-                  placeholder="Asset Name"
-                />
-              </div>
-              <div className="mt-8">
-                <InputElement
-                  value={values.description}
-                  width={"96"}
-                  type="textarea"
-                  placeholder="Asset Descriptions"
-                />
-              </div>
-              <div className="mt-8">
-                <InputElement
-                  value={values.price}
-                  width={"96"}
-                  type="text"
-                  placeholder="Asset Price in ETH"
-                />
-              </div>
+            <form onSubmit={handleSubmit}>
+              <InputElement
+                name="name"
+                onChange={handleChange}
+                width={"96"}
+                type="text"
+                placeholder="Asset Name"
+              />
+              <InputElement
+                name="description"
+                onChange={handleChange}
+                width={"96"}
+                type="textarea"
+                placeholder="Asset Descriptions"
+              />
+              <InputElement
+                name="price"
+                onChange={handleChange}
+                width={"96"}
+                type="text"
+                placeholder="Asset Price in ETH"
+              />
               <input
                 type="file"
+                name="file"
                 className="text-white mt-8"
                 onChange={handleChange}
               />
-              ;
+              {values.file !== null && <img src={values.file} alt="Asset" />}
               <div className="mt-5">
                 <button
-                  onSubmit={handleSubmit}
+                  type="submit"
                   className="text-white --silver-border p-4 w-96 self-center hover:bg-grey "
                 >
                   Create New Asset
                 </button>
               </div>
-            </>
+            </form>
           )}
         </Formik>
       </div>
