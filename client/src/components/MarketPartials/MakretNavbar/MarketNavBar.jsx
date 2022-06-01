@@ -6,7 +6,7 @@ const MarketNavBar = () => {
     <ul className="flex flex-row justify-around h-24 mt-24 m-4">
       <li className="text-2xl hover:opacity-80 ">
         <NavLink
-          to="/market/sell-asset"
+          to="/market/new-asset"
           className={({ isActive }) =>
             isActive
               ? "--silver-border p-4 rounded-3xl bg-grey"

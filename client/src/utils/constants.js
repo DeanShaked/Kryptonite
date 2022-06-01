@@ -10,7 +10,7 @@ export const transactionsContractAddress =
 
 /* NFTMarket contract*/
 export const nftMarketABI = NftMarketAbi.abi;
-export const nftMarketContractAddress =
+export const nftMarketPlaceContractAddress =
   "0x2f0E2f6d2882118bFDc1072F23ED45028AB14C6d";
 
 /* NFT contract*/

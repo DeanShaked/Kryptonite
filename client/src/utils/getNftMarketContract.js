@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { nftMarketABI, nftMarketContractAddress } from "./constants";
+import { nftMarketABI, nftMarketPlaceContractAddress } from "./constants";
 
 const { ethereum } = window;
 
@@ -13,7 +13,7 @@ export const getNftMarketContract = () => {
 
   // Now we can create an instance of the contract using the ethers.
   const nftMarketContract = new ethers.Contract(
-    nftMarketContractAddress,
+    nftMarketPlaceContractAddress,
     nftMarketABI,
     signer
   );

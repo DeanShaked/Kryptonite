@@ -1,13 +1,22 @@
 // App
-import React from "react";
+import React, { useState } from "react";
 
 // External Libraries
-import { Formik } from "formik";
+import { Formik, Form } from "formik";
+import { ethers } from "ethers";
+import Web3Modal from "web3modal";
+import { create } from "ipfs-http-client";
 
-// Components & Styles
+// ABI and Contract address
+import NFTMarketplace from "../../../abis/NFTMarket.json";
+import { nftMarketPlaceContractAddress } from "../../../utils/constants";
+
+// Components and Styles
 import InputElement from "../../Reusable/InputElement";
 
 const NewAsset = () => {
+  // connect using a URL
+  const client = create(new URL("http://127.0.0.1:5002"));
   return (
     <div className="h-[455px] --silver-border --gradient-blue-silver shadow-lg rounded-2xl w-[516px] mx-auto">
       <div className="flex flex-col justify-center items-center mt-4">
@@ -23,8 +32,9 @@ const NewAsset = () => {
           }}
         >
           {({ values, handleChange, handleSubmit }) => (
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
               <InputElement
+                value={values.name}
                 name="name"
                 onChange={handleChange}
                 width={"96"}
@@ -32,6 +42,7 @@ const NewAsset = () => {
                 placeholder="Asset Name"
               />
               <InputElement
+                value={values.description}
                 name="description"
                 onChange={handleChange}
                 width={"96"}
@@ -39,6 +50,7 @@ const NewAsset = () => {
                 placeholder="Asset Descriptions"
               />
               <InputElement
+                value={values.price}
                 name="price"
                 onChange={handleChange}
                 width={"96"}
@@ -60,7 +72,7 @@ const NewAsset = () => {
                   Create New Asset
                 </button>
               </div>
-            </form>
+            </Form>
           )}
         </Formik>
       </div>

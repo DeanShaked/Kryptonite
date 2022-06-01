@@ -23,7 +23,7 @@ const App = () => {
           <Route exact path={"/"} element={<HomeScreen />} />
           <Route path={"/market"} element={<MarketScreen />}>
             <Route index element={<HomeMarket />} />
-            <Route path="sell-asset" element={<NewAsset />} />
+            <Route path="new-asset" element={<NewAsset />} />
             <Route path="my-assets" element={<MyAssets />} />
             <Route path="dashboard" element={<Dashboard />} />
           </Route>
